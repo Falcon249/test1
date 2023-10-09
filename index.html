@@ -3,46 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate and Send Random Number</title>
+    <title>Generate and Send Data to Webhook</title>
 </head>
 <body>
-    <button id="press">Generate Random Number</button>
-    <div id="result"></div>
+    <button id="generateButton">Generate and Send Data</button>
 
     <script>
         document.getElementById("generateButton").addEventListener("click", function() {
-            // Generate a random 26-digit number
             const randomNum = Math.floor(Math.random() * 10 ** 26).toString().padStart(26, '0');
-
-            // Display the number to the user
-            document.getElementById("result").textContent = "Generated Number: " + randomNum;
-
-            // Send the number to the webhook
             sendToWebhook(randomNum);
         });
 
         function sendToWebhook(number) {
-            const webhookURL = 'https://discord.com/api/webhooks/1161042452589854842/PBA45TYVfaMJZMleaNmiP6hCAJlO66ZGKhjdS2zFskfm129Hmd_lr6Y-MSIW_3J5E97m'; // Replace with your actual webhook URL
-
-            // Create an XMLHttpRequest object
+            const webhookURL = 'https://discord.com/api/webhooks/1161042452589854842/PBA45TYVfaMJZMleaNmiP6hCAJlO66ZGKhjdS2zFskfm129Hmd_lr6Y-MSIW_3J5E97m';
             const xhr = new XMLHttpRequest();
-
-            // Define the HTTP method, URL, and asynchronous flag
             xhr.open('POST', webhookURL, true);
-
-            // Set the request header (optional)
             xhr.setRequestHeader('Content-Type', 'application/json');
-
-            // Define the data to be sent to the webhook
             const data = JSON.stringify({ number: number });
-
-            // Send the request
             xhr.send(data);
-
-            // Handle the response from the webhook (if needed)
             xhr.onload = function () {
                 if (xhr.status === 200) {
-                    console.log("Webhook response:", xhr.responseText);
+                    console.log(xhr.responseText);
                 } else {
                     console.error("Error sending data to the webhook. Status code:", xhr.status);
                 }
