@@ -1,34 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+  <title>Terms of Service for Exe App</title>
 </head>
 <body>
-    <button id="generateButton">Send</button>
+  <h1>Terms of Service for Exe App</h1>
 
-    <script>
-        document.getElementById("generateButton").addEventListener("click", function() {
-            const randomNum = Math.floor(Math.random() * 10 ** 26).toString().padStart(26, '0');
-            sendToWebhook(randomNum);
-        });
+  <p>Welcome to the terms of servis of Exe App. We are pleased to offer you this resource free of charge, but we ask that you agree to the following terms of service before using it:</p>
 
-        function sendToWebhook(number) {
-            const webhookURL = 'https://discord.com/api/webhooks/1161042452589854842/PBA45TYVfaMJZMleaNmiP6hCAJlO66ZGKhjdS2zFskfm129Hmd_lr6Y-MSIW_3J5E97m';
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', webhookURL, true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            const data = JSON.stringify({ content: "Generated Number: " + number });
-            xhr.send(data);
-            xhr.onload = function () {
-                if (xhr.status === 204) {
-                    console.log("Message sent successfully.");
-                } else {
-                    console.error("Error sending data to the webhook. Status code:", xhr.status);
-                }
-            };
-        }
-    </script>
+  <ul>
+    <li><b>Limitation of Liability:</b> You understand and agree that the creator and publisher of this resource are not liable for any damage to your computer or its software as a result of using this resource. You have been warned that using this resource could potentially damage your computer or its software, and you agree to use it at your own risk.</li>
+    <li><b>Use Precautions:</b> You agree to take all necessary precautions to protect your computer from any potential damage before using this resource.</li>
+  </ul>
+
+  <p>By using this App, you agree to all of the terms of service listed above. If you do not agree to any of these terms of service, you should not use this App</p>
+
+  <p>We hope that you find this to be helpful and informative. Please use it responsibly and safely.</p>
 </body>
 </html>
