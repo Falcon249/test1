@@ -1,1 +1,80 @@
-hm
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm">
+        <label for="loginUsername">Username:</label>
+        <input type="text" id="loginUsername" required><br>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required><br>
+        <button type="button" onclick="login()">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register here</a>.</p>
+
+    <div id="registerDiv" style="display: none;">
+        <h1>Register</h1>
+        <form id="registerForm">
+            <label for="registerUsername">Username:</label>
+            <input type="text" id="registerUsername" required><br>
+            <label for="registerPassword">Password:</label>
+            <input type="password" id="registerPassword" required><br>
+            <button type="button" onclick="register()">Register</button>
+        </form>
+        <p>Already have an account? <a href="#" onclick="showLoginForm()">Login here</a>.</p>
+    </div>
+
+    <script>
+        function showRegisterForm() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerDiv').style.display = 'block';
+        }
+
+        function showLoginForm() {
+            document.getElementById('loginForm').style.display = 'inline-block';
+            document.getElementById('registerDiv').style.display = 'none';
+        }
+
+        function login() {
+            var username = document.getElementById('loginUsername').value;
+            var password = document.getElementById('loginPassword').value;
+
+            // Simulate server-side authentication
+            if (username === 'demo' && password === 'demo') {
+                alert('Welcome, ' + username + '!');
+            } else {
+                alert('Invalid username or password');
+            }
+        }
+
+        function register() {
+            var username = document.getElementById('registerUsername').value;
+            var password = document.getElementById('registerPassword').value;
+
+            // Simulate server-side account creation
+            alert('Account created for ' + username);
+            showLoginForm();
+        }
+    </script>
+</body>
+</html>
