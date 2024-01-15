@@ -48,6 +48,7 @@
         // Simulate server-side authentication
         if (exampleAccounts[username] && exampleAccounts[username] === password) {
             alert('Welcome, ' + username + '!');
+            window.location.href = 'http://example.com';
         } else {
             alert('Invalid username or password');
         }
