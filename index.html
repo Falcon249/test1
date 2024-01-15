@@ -30,51 +30,26 @@
         <input type="password" id="loginPassword" required><br>
         <button type="button" onclick="login()">Login</button>
     </form>
-    <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register here</a>.</p>
-
-    <div id="registerDiv" style="display: none;">
-        <h1>Register</h1>
-        <form id="registerForm">
-            <label for="registerUsername">Username:</label>
-            <input type="text" id="registerUsername" required><br>
-            <label for="registerPassword">Password:</label>
-            <input type="password" id="registerPassword" required><br>
-            <button type="button" onclick="register()">Register</button>
-        </form>
-        <p>Already have an account? <a href="#" onclick="showLoginForm()">Login here</a>.</p>
-    </div>
-
-    <script>
-        function showRegisterForm() {
-            document.getElementById('loginForm').style.display = 'none';
-            document.getElementById('registerDiv').style.display = 'block';
-        }
-
-        function showLoginForm() {
-            document.getElementById('loginForm').style.display = 'inline-block';
-            document.getElementById('registerDiv').style.display = 'none';
-        }
-
-        function login() {
-            var username = document.getElementById('loginUsername').value;
-            var password = document.getElementById('loginPassword').value;
-
-            // Simulate server-side authentication
-            if (username === 'demo' && password === 'demo') {
-                alert('Welcome, ' + username + '!');
-            } else {
-                alert('Invalid username or password');
-            }
-        }
-
-        function register() {
-            var username = document.getElementById('registerUsername').value;
-            var password = document.getElementById('registerPassword').value;
-
-            // Simulate server-side account creation
-            alert('Account created for ' + username);
-            showLoginForm();
-        }
-    </script>
 </body>
 </html>
+
+<script>
+    // Example accounts stored in JavaScript (for demonstration purposes only)
+    var exampleAccounts = {
+        'user1': 'password1',
+        'user2': 'password2',
+        'user3': 'password3'
+    };
+
+    function login() {
+        var username = document.getElementById('loginUsername').value;
+        var password = document.getElementById('loginPassword').value;
+
+        // Simulate server-side authentication
+        if (exampleAccounts[username] && exampleAccounts[username] === password) {
+            alert('Welcome, ' + username + '!');
+        } else {
+            alert('Invalid username or password');
+        }
+    }
+</script>
